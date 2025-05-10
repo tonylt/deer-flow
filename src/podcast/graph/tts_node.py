@@ -16,7 +16,7 @@ def tts_node(state: PodcastState):
     tts_client = _create_tts_client()
     for line in state["script"].lines:
         tts_client.voice_type = (
-            "BV002_streaming" if line.speaker == "male" else "BV001_streaming"
+            "zh_male_shaonianzixin_moon_bigtts" if line.speaker == "male" else "zh_female_linjianvhai_moon_bigtts"
         )
         result = tts_client.text_to_speech(line.paragraph, speed_ratio=1.05)
         if result["success"]:
@@ -38,7 +38,7 @@ def _create_tts_client():
     if not access_token:
         raise Exception("VOLCENGINE_TTS_ACCESS_TOKEN is not set")
     cluster = os.getenv("VOLCENGINE_TTS_CLUSTER", "volcano_tts")
-    voice_type = "BV001_streaming"
+    voice_type = os.getenv("VOLCENGINE_TTS_VOICE_TYPE", "BV001_streaming")
     return VolcengineTTS(
         appid=app_id,
         access_token=access_token,

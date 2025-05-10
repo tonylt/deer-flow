@@ -96,8 +96,8 @@ class VolcengineTTS:
                 "text": text,
                 "text_type": text_type,
                 "operation": "query",
-                "with_frontend": with_frontend,
-                "frontend_type": frontend_type,
+                # "with_frontend": with_frontend,
+                # "frontend_type": frontend_type,
             },
         }
 

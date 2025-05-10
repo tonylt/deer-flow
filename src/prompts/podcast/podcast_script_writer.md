@@ -25,6 +25,25 @@ interface Script {
 }
 ```
 
+Example of valid output:
+```json
+{
+  "locale": "zh",
+  "lines": [
+    {
+      "speaker": "male",
+      "paragraph": "嘿，欢迎来到"Hello Deer"播客！今天我们来聊聊人工智能领域的一些有趣话题。"
+    },
+    {
+      "speaker": "female",
+      "paragraph": "听起来很有意思！能具体说说是什么话题吗？"
+    }
+  ]
+}
+```
+
+IMPORTANT: Every line MUST have both "speaker" and "paragraph" fields. The "paragraph" field MUST contain the actual text content. Never put the text content directly as a value without the "paragraph" field.
+
 # Notes
 
 - It should always start with "Hello Deer" podcast greetings and followed by topic introduction.
